@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAI National Talent Scouting Dashboard</title>
+    <link rel="stylesheet" href="government-dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <i class="fas fa-flag"></i>
+                        <div class="logo-text">
+                            <h1>SAI National Dashboard</h1>
+                            <p>Sports Authority of India - Talent Identification System</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-section">
+                    <div class="user-info">
+                        <img src="https://via.placeholder.com/40x40/FF6B35/white?text=SAI" alt="SAI Official" class="user-avatar">
+                        <div class="user-details">
+                            <span class="user-name">Dr. Rajesh Kumar</span>
+                            <span class="user-role">Director - Talent Identification</span>
+                        </div>
+                    </div>
+                    <div class="header-stats">
+                        <div class="header-stat">
+                            <span class="stat-number">2,847</span>
+                            <span class="stat-label">Athletes Tested</span>
+                        </div>
+                        <div class="header-stat">
+                            <span class="stat-number">342</span>
+                            <span class="stat-label">Talent Identified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="dashboard-nav">
+            <div class="nav-item active" data-tab="overview">
+                <i class="fas fa-chart-pie"></i>
+                <span>National Overview</span>
+            </div>
+            <div class="nav-item" data-tab="states">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>State Analysis</span>
+            </div>
+            <div class="nav-item" data-tab="talent-pipeline">
+                <i class="fas fa-users"></i>
+                <span>Talent Pipeline</span>
+            </div>
+            <div class="nav-item" data-tab="scouting">
+                <i class="fas fa-search"></i>
+                <span>Scouting Reports</span>
+            </div>
+            <div class="nav-item" data-tab="ai-insights">
+                <i class="fas fa-brain"></i>
+                <span>AI Insights</span>
+            </div>
+            <div class="nav-item" data-tab="analytics">
+                <i class="fas fa-chart-line"></i>
+                <span>Analytics</span>
+            </div>
+            <div class="nav-item" data-tab="reports">
+                <i class="fas fa-file-alt"></i>
+                <span>Reports</span>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="overview">
+                <div class="page-header">
+                    <h2>National Talent Overview</h2>
+                    <div class="date-range">
+                        <i class="fas fa-calendar"></i>
+                        <span>December 2024</span>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="metrics-grid">
+                    <div class="metric-card primary">
+                        <div class="metric-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>2,847</h3>
+                            <p>Total Athletes Tested</p>
+                            <span class="metric-change positive">+156 this month</span>
+                        </div>
+                    </div>
+                    <div class="metric-card success">
+                        <div class="metric-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>342</h3>
+                            <p>Talent Identified</p>
+                            <span class="metric-change positive">+23 this month</span>
+                        </div>
+                    </div>
+                    <div class="metric-card warning">
+                        <div class="metric-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>18</h3>
+                            <p>States Covered</p>
+                            <span class="metric-change neutral">No change</span>
+                        </div>
+                    </div>
+                    <div class="metric-card info">
+                        <div class="metric-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>12.0%</h3>
+                            <p>Success Rate</p>
+                            <span class="metric-change positive">+1.2% this month</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- India Map and Stats -->
+                <div class="map-section">
+                    <div class="map-container">
+                        <h3>🗺️ Talent Distribution Across India</h3>
+                        <div class="india-map">
+                            <div class="map-region north">
+                                <div class="state high-talent" data-state="Punjab">
+                                    <span class="state-name">Punjab</span>
+                                    <span class="state-count">45 athletes</span>
+                                </div>
+                                <div class="state high-talent" data-state="Haryana">
+                                    <span class="state-name">Haryana</span>
+                                    <span class="state-count">32 athletes</span>
+                                </div>
+                                <div class="state medium-talent" data-state="Delhi">
+                                    <span class="state-name">Delhi</span>
+                                    <span class="state-count">28 athletes</span>
+                                </div>
+                            </div>
+                            <div class="map-region south">
+                                <div class="state medium-talent" data-state="Kerala">
+                                    <span class="state-name">Kerala</span>
+                                    <span class="state-count">28 athletes</span>
+                                </div>
+                                <div class="state medium-talent" data-state="Tamil Nadu">
+                                    <span class="state-name">Tamil Nadu</span>
+                                    <span class="state-count">25 athletes</span>
+                                </div>
+                                <div class="state medium-talent" data-state="Karnataka">
+                                    <span class="state-name">Karnataka</span>
+                                    <span class="state-count">22 athletes</span>
+                                </div>
+                            </div>
+                            <div class="map-region east">
+                                <div class="state low-talent" data-state="Bihar">
+                                    <span class="state-name">Bihar</span>
+                                    <span class="state-count">8 athletes</span>
+                                </div>
+                                <div class="state low-talent" data-state="Jharkhand">
+                                    <span class="state-name">Jharkhand</span>
+                                    <span class="state-count">6 athletes</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="map-legend">
+                            <div class="legend-item">
+                                <span class="legend-color high"></span>
+                                <span>High Talent (30+ athletes)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color medium"></span>
+                                <span>Medium Talent (15-29 athletes)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color low"></span>
+                                <span>Low Talent (<15 athletes)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top-states">
+                        <h3>🏆 Top Performing States</h3>
+                        <div class="states-list">
+                            <div class="state-item">
+                                <div class="state-rank">1</div>
+                                <div class="state-info">
+                                    <span class="state-name">Punjab</span>
+                                    <span class="state-percentage">15.8%</span>
+                                </div>
+                                <div class="state-bar">
+                                    <div class="state-progress" style="width: 100%"></div>
+                                </div>
+                                <span class="state-count">45 athletes</span>
+                            </div>
+                            <div class="state-item">
+                                <div class="state-rank">2</div>
+                                <div class="state-info">
+                                    <span class="state-name">Haryana</span>
+                                    <span class="state-percentage">11.2%</span>
+                                </div>
+                                <div class="state-bar">
+                                    <div class="state-progress" style="width: 71%"></div>
+                                </div>
+                                <span class="state-count">32 athletes</span>
+                            </div>
+                            <div class="state-item">
+                                <div class="state-rank">3</div>
+                                <div class="state-info">
+                                    <span class="state-name">Kerala</span>
+                                    <span class="state-percentage">9.8%</span>
+                                </div>
+                                <div class="state-bar">
+                                    <div class="state-progress" style="width: 62%"></div>
+                                </div>
+                                <span class="state-count">28 athletes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h3>📈 Recent National Activity</h3>
+                    <div class="activity-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Punjab leads in talent identification</h4>
+                                <p>45 athletes identified in Punjab, highest in the country</p>
+                                <span class="timeline-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>National success rate improved</h4>
+                                <p>Overall success rate increased by 1.2% this month</p>
+                                <span class="timeline-time">4 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>New testing centers opened</h4>
+                                <p>5 new testing centers opened in rural areas</p>
+                                <span class="timeline-time">1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- States Tab -->
+            <div class="tab-content" id="states">
+                <div class="page-header">
+                    <h2>State-wise Analysis</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-download"></i>
+                            Export State Data
+                        </button>
+                    </div>
+                </div>
+
+                <!-- State Filters -->
+                <div class="filters-section">
+                    <div class="filter-group">
+                        <label>Region:</label>
+                        <select class="filter-select">
+                            <option value="all">All Regions</option>
+                            <option value="north">North India</option>
+                            <option value="south">South India</option>
+                            <option value="east">East India</option>
+                            <option value="west">West India</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Performance Level:</label>
+                        <select class="filter-select">
+                            <option value="all">All Levels</option>
+                            <option value="high">High Performance</option>
+                            <option value="medium">Medium Performance</option>
+                            <option value="low">Low Performance</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Search State:</label>
+                        <input type="text" class="filter-input" placeholder="Search states...">
+                    </div>
+                </div>
+
+                <!-- States Grid -->
+                <div class="states-grid">
+                    <div class="state-card high-performance">
+                        <div class="state-header">
+                            <h3>Punjab</h3>
+                            <span class="performance-badge high">High Performance</span>
+                        </div>
+                        <div class="state-stats">
+                            <div class="stat">
+                                <span class="stat-label">Athletes Tested:</span>
+                                <span class="stat-value">285</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Talent Identified:</span>
+                                <span class="stat-value">45</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Success Rate:</span>
+                                <span class="stat-value">15.8%</span>
+                            </div>
+                        </div>
+                        <div class="state-chart">
+                            <canvas id="punjabChart"></canvas>
+                        </div>
+                        <div class="state-actions">
+                            <button class="btn-secondary">View Details</button>
+                            <button class="btn-primary">Generate Report</button>
+                        </div>
+                    </div>
+
+                    <div class="state-card high-performance">
+                        <div class="state-header">
+                            <h3>Haryana</h3>
+                            <span class="performance-badge high">High Performance</span>
+                        </div>
+                        <div class="state-stats">
+                            <div class="stat">
+                                <span class="stat-label">Athletes Tested:</span>
+                                <span class="stat-value">198</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Talent Identified:</span>
+                                <span class="stat-value">32</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Success Rate:</span>
+                                <span class="stat-value">16.2%</span>
+                            </div>
+                        </div>
+                        <div class="state-chart">
+                            <canvas id="haryanaChart"></canvas>
+                        </div>
+                        <div class="state-actions">
+                            <button class="btn-secondary">View Details</button>
+                            <button class="btn-primary">Generate Report</button>
+                        </div>
+                    </div>
+
+                    <div class="state-card medium-performance">
+                        <div class="state-header">
+                            <h3>Kerala</h3>
+                            <span class="performance-badge medium">Medium Performance</span>
+                        </div>
+                        <div class="state-stats">
+                            <div class="stat">
+                                <span class="stat-label">Athletes Tested:</span>
+                                <span class="stat-value">156</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Talent Identified:</span>
+                                <span class="stat-value">28</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Success Rate:</span>
+                                <span class="stat-value">17.9%</span>
+                            </div>
+                        </div>
+                        <div class="state-chart">
+                            <canvas id="keralaChart"></canvas>
+                        </div>
+                        <div class="state-actions">
+                            <button class="btn-secondary">View Details</button>
+                            <button class="btn-primary">Generate Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Talent Pipeline Tab -->
+            <div class="tab-content" id="talent-pipeline">
+                <div class="page-header">
+                    <h2>National Talent Pipeline</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add to Pipeline
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pipeline Overview -->
+                <div class="pipeline-overview">
+                    <div class="pipeline-stages">
+                        <div class="pipeline-stage">
+                            <div class="stage-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="stage-content">
+                                <h3>Initial Screening</h3>
+                                <div class="stage-number">2,847</div>
+                                <p>Athletes tested nationwide</p>
+                            </div>
+                            <div class="stage-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 100%"></div>
+                                </div>
+                                <span>100% Complete</span>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <div class="stage-icon">
+                                <i class="fas fa-filter"></i>
+                            </div>
+                            <div class="stage-content">
+                                <h3>Qualified Athletes</h3>
+                                <div class="stage-number">342</div>
+                                <p>Meet minimum standards</p>
+                            </div>
+                            <div class="stage-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 12%"></div>
+                                </div>
+                                <span>12% Success Rate</span>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <div class="stage-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stage-content">
+                                <h3>Elite Athletes</h3>
+                                <div class="stage-number">23</div>
+                                <p>National team potential</p>
+                            </div>
+                            <div class="stage-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 0.8%"></div>
+                                </div>
+                                <span>0.8% Elite Rate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pipeline Analytics -->
+                <div class="pipeline-analytics">
+                    <div class="analytics-card">
+                        <h3>Pipeline Conversion Rates</h3>
+                        <canvas id="conversionChart"></canvas>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Monthly Pipeline Trends</h3>
+                        <canvas id="pipelineTrendsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Elite Athletes List -->
+                <div class="elite-athletes">
+                    <h3>🌟 Elite Athletes - National Team Candidates</h3>
+                    <div class="athletes-table-container">
+                        <table class="elite-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Athlete</th>
+                                    <th>State</th>
+                                    <th>Sport</th>
+                                    <th>Vertical Jump</th>
+                                    <th>Overall Score</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="rank-badge gold">1</span></td>
+                                    <td>
+                                        <div class="athlete-info">
+                                            <img src="https://via.placeholder.com/32x32/4CAF50/white?text=RK" alt="Rajesh" class="athlete-avatar">
+                                            <span>Rajesh Kumar</span>
+                                        </div>
+                                    </td>
+                                    <td>Punjab</td>
+                                    <td>Athletics</td>
+                                    <td><span class="score excellent">28.5"</span></td>
+                                    <td><span class="score excellent">94.2</span></td>
+                                    <td><span class="status selected">Selected</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rank-badge silver">2</span></td>
+                                    <td>
+                                        <div class="athlete-info">
+                                            <img src="https://via.placeholder.com/32x32/2196F3/white?text=PS" alt="Priya" class="athlete-avatar">
+                                            <span>Priya Sharma</span>
+                                        </div>
+                                    </td>
+                                    <td>Haryana</td>
+                                    <td>Basketball</td>
+                                    <td><span class="score excellent">24.2"</span></td>
+                                    <td><span class="score excellent">91.8</span></td>
+                                    <td><span class="status selected">Selected</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="rank-badge bronze">3</span></td>
+                                    <td>
+                                        <div class="athlete-info">
+                                            <img src="https://via.placeholder.com/32x32/FF9800/white?text=AS" alt="Amit" class="athlete-avatar">
+                                            <span>Amit Singh</span>
+                                        </div>
+                                    </td>
+                                    <td>Kerala</td>
+                                    <td>Football</td>
+                                    <td><span class="score excellent">25.8"</span></td>
+                                    <td><span class="score excellent">89.5</span></td>
+                                    <td><span class="status pending">Under Review</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scouting Tab -->
+            <div class="tab-content" id="scouting">
+                <div class="page-header">
+                    <h2>Scouting Reports & Analysis</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Create Scouting Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Scouting Summary -->
+                <div class="scouting-summary">
+                    <div class="summary-card">
+                        <h3>📊 National Scouting Summary</h3>
+                        <div class="summary-stats">
+                            <div class="summary-stat">
+                                <span class="stat-label">Total Athletes Scouted:</span>
+                                <span class="stat-value">2,847</span>
+                            </div>
+                            <div class="summary-stat">
+                                <span class="stat-label">Talent Identified:</span>
+                                <span class="stat-value">342</span>
+                            </div>
+                            <div class="summary-stat">
+                                <span class="stat-label">Elite Athletes:</span>
+                                <span class="stat-value">23</span>
+                            </div>
+                            <div class="summary-stat">
+                                <span class="stat-label">Average Age:</span>
+                                <span class="stat-value">16.2 years</span>
+                            </div>
+                            <div class="summary-stat">
+                                <span class="stat-label">Rural vs Urban:</span>
+                                <span class="stat-value">68% Rural, 32% Urban</span>
+                            </div>
+                            <div class="summary-stat">
+                                <span class="stat-label">Top Performing Sport:</span>
+                                <span class="stat-value">Athletics (Track & Field)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scouting Reports -->
+                <div class="scouting-reports">
+                    <h3>📋 Generated Scouting Reports</h3>
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h4>National Talent Report - December 2024</h4>
+                                <span class="report-date">Dec 15, 2024</span>
+                            </div>
+                            <div class="report-content">
+                                <p>Comprehensive analysis of national talent identification program covering all 18 states.</p>
+                                <div class="report-stats">
+                                    <span class="report-stat">2,847 athletes analyzed</span>
+                                    <span class="report-stat">342 talent identified</span>
+                                    <span class="report-stat">23 elite candidates</span>
+                                </div>
+                            </div>
+                            <div class="report-actions">
+                                <button class="btn-secondary">
+                                    <i class="fas fa-download"></i>
+                                    Download PDF
+                                </button>
+                                <button class="btn-primary">
+                                    <i class="fas fa-share"></i>
+                                    Share Report
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h4>State-wise Performance Analysis</h4>
+                                <span class="report-date">Dec 12, 2024</span>
+                            </div>
+                            <div class="report-content">
+                                <p>Detailed breakdown of performance metrics across different states and regions.</p>
+                                <div class="report-stats">
+                                    <span class="report-stat">18 states analyzed</span>
+                                    <span class="report-stat">Regional comparisons</span>
+                                    <span class="report-stat">Performance rankings</span>
+                                </div>
+                            </div>
+                            <div class="report-actions">
+                                <button class="btn-secondary">
+                                    <i class="fas fa-download"></i>
+                                    Download PDF
+                                </button>
+                                <button class="btn-primary">
+                                    <i class="fas fa-share"></i>
+                                    Share Report
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h4>Elite Athletes Profile</h4>
+                                <span class="report-date">Dec 10, 2024</span>
+                            </div>
+                            <div class="report-content">
+                                <p>In-depth profiles of top 23 elite athletes with national team potential.</p>
+                                <div class="report-stats">
+                                    <span class="report-stat">23 elite profiles</span>
+                                    <span class="report-stat">Performance metrics</span>
+                                    <span class="report-stat">Training recommendations</span>
+                                </div>
+                            </div>
+                            <div class="report-actions">
+                                <button class="btn-secondary">
+                                    <i class="fas fa-download"></i>
+                                    Download PDF
+                                </button>
+                                <button class="btn-primary">
+                                    <i class="fas fa-share"></i>
+                                    Share Report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="recommendations">
+                    <h3>💡 Strategic Recommendations</h3>
+                    <div class="recommendations-grid">
+                        <div class="recommendation-card">
+                            <div class="recommendation-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="recommendation-content">
+                                <h4>Focus on High-Potential Regions</h4>
+                                <p>Increase testing efforts in Punjab, Haryana, and Kerala where success rates are highest.</p>
+                                <span class="priority high">High Priority</span>
+                            </div>
+                        </div>
+                        <div class="recommendation-card">
+                            <div class="recommendation-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="recommendation-content">
+                                <h4>Rural Talent Development</h4>
+                                <p>68% of identified talent comes from rural areas. Expand rural testing infrastructure.</p>
+                                <span class="priority medium">Medium Priority</span>
+                            </div>
+                        </div>
+                        <div class="recommendation-card">
+                            <div class="recommendation-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="recommendation-content">
+                                <h4>Age-Specific Programs</h4>
+                                <p>Develop specialized programs for 16-18 age group showing highest potential.</p>
+                                <span class="priority high">High Priority</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Insights Tab -->
+            <div class="tab-content" id="ai-insights">
+                <div class="page-header">
+                    <h2>AI-Powered Insights</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-sync"></i>
+                            Refresh Insights
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Future Stars Prediction -->
+                <div class="insights-section">
+                    <h3>🌟 Future Stars Prediction</h3>
+                    <div class="prediction-grid">
+                        <div class="prediction-card">
+                            <div class="athlete-info">
+                                <img src="https://via.placeholder.com/60x60/4CAF50/white?text=RK" alt="Rajesh" class="athlete-avatar">
+                                <div class="athlete-details">
+                                    <h4>Rajesh Kumar</h4>
+                                    <p>Punjab • Athletics • 16 years</p>
+                                    <div class="prediction-score">
+                                        <span class="score-label">Olympic Potential:</span>
+                                        <span class="score-value high">94%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prediction-factors">
+                                <div class="factor">
+                                    <span class="label">Improvement Rate:</span>
+                                    <span class="value positive">+23% monthly</span>
+                                </div>
+                                <div class="factor">
+                                    <span class="label">Consistency:</span>
+                                    <span class="value high">96%</span>
+                                </div>
+                                <div class="factor">
+                                    <span class="label">Peak Performance:</span>
+                                    <span class="value high">Above 95th percentile</span>
+                                </div>
+                            </div>
+                            <div class="prediction-actions">
+                                <button class="btn-primary" onclick="flagForTrials(this)">
+                                    <i class="fas fa-flag"></i>
+                                    Flag for Trials
+                                </button>
+                                <button class="btn-secondary" onclick="viewDetailedAnalysis(this)">
+                                    <i class="fas fa-chart-line"></i>
+                                    Detailed Analysis
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="prediction-card">
+                            <div class="athlete-info">
+                                <img src="https://via.placeholder.com/60x60/2196F3/white?text=PS" alt="Priya" class="athlete-avatar">
+                                <div class="athlete-details">
+                                    <h4>Priya Sharma</h4>
+                                    <p>Kerala • Swimming • 15 years</p>
+                                    <div class="prediction-score">
+                                        <span class="score-label">Olympic Potential:</span>
+                                        <span class="score-value high">89%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prediction-factors">
+                                <div class="factor">
+                                    <span class="label">Improvement Rate:</span>
+                                    <span class="value positive">+18% monthly</span>
+                                </div>
+                                <div class="factor">
+                                    <span class="label">Consistency:</span>
+                                    <span class="value high">92%</span>
+                                </div>
+                                <div class="factor">
+                                    <span class="label">Peak Performance:</span>
+                                    <span class="value high">Above 90th percentile</span>
+                                </div>
+                            </div>
+                            <div class="prediction-actions">
+                                <button class="btn-primary" onclick="flagForTrials(this)">
+                                    <i class="fas fa-flag"></i>
+                                    Flag for Trials
+                                </button>
+                                <button class="btn-secondary" onclick="viewDetailedAnalysis(this)">
+                                    <i class="fas fa-chart-line"></i>
+                                    Detailed Analysis
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="prediction-card">
+                            <div class="athlete-info">
+                                <img src="https://via.placeholder.com/60x60/FF9800/white?text=AS" alt="Amit" class="athlete-avatar">
+                                <div class="athlete-details">
+                                    <h4>Amit Singh</h4>
+                                    <p>Haryana • Wrestling • 17 years</p>
+                                    <div class="prediction-score">
+                                        <span class="score-label">Olympic Potential:</span>
+                                        <span class="score-value medium">76%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prediction-factors">
+                                <div class="factor">
+                                    <span class="label">Improvement Rate:</span>
+                                    <span class="value positive">+15% monthly</span>
+                                </div>
+                                <div class="factor">
+                                    <span class="label">Consistency:</span>
+                                    <span class="value medium">84%</span>
+                                </div>
+                                <div class="factor">
+                                    <span class="label">Peak Performance:</span>
+                                    <span class="value medium">Above 80th percentile</span>
+                                </div>
+                            </div>
+                            <div class="prediction-actions">
+                                <button class="btn-primary" onclick="flagForTrials(this)">
+                                    <i class="fas fa-flag"></i>
+                                    Flag for Trials
+                                </button>
+                                <button class="btn-secondary" onclick="viewDetailedAnalysis(this)">
+                                    <i class="fas fa-chart-line"></i>
+                                    Detailed Analysis
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Underperforming States Analysis -->
+                <div class="insights-section">
+                    <h3>📊 State Performance Analysis</h3>
+                    <div class="state-analysis-grid">
+                        <div class="analysis-card">
+                            <div class="card-header">
+                                <h4>🔴 States Needing Support</h4>
+                                <span class="priority high">High Priority</span>
+                            </div>
+                            <div class="analysis-content">
+                                <div class="state-item">
+                                    <div class="state-info">
+                                        <span class="state-name">Bihar</span>
+                                        <span class="state-metric">8 athletes tested</span>
+                                    </div>
+                                    <div class="recommendations">
+                                        <h5>AI Recommendations:</h5>
+                                        <ul>
+                                            <li>Increase awareness campaigns in rural areas</li>
+                                            <li>Set up mobile testing units</li>
+                                            <li>Partner with local schools</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="state-item">
+                                    <div class="state-info">
+                                        <span class="state-name">Jharkhand</span>
+                                        <span class="state-metric">6 athletes tested</span>
+                                    </div>
+                                    <div class="recommendations">
+                                        <h5>AI Recommendations:</h5>
+                                        <ul>
+                                            <li>Focus on tribal area outreach</li>
+                                            <li>Establish regional sports centers</li>
+                                            <li>Train local coaches</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <button class="btn-primary" onclick="createSupportPlan(this)">
+                                    <i class="fas fa-plus"></i>
+                                    Create Support Plan
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="analysis-card">
+                            <div class="card-header">
+                                <h4>🟡 Sports Needing Attention</h4>
+                                <span class="priority medium">Medium Priority</span>
+                            </div>
+                            <div class="analysis-content">
+                                <div class="sport-item">
+                                    <div class="sport-info">
+                                        <span class="sport-name">Weightlifting</span>
+                                        <span class="sport-metric">Low participation</span>
+                                    </div>
+                                    <div class="recommendations">
+                                        <h5>AI Recommendations:</h5>
+                                        <ul>
+                                            <li>Equipment accessibility issues</li>
+                                            <li>Need specialized training facilities</li>
+                                            <li>Coach shortage in this sport</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="sport-item">
+                                    <div class="sport-info">
+                                        <span class="sport-name">Gymnastics</span>
+                                        <span class="sport-metric">Limited infrastructure</span>
+                                    </div>
+                                    <div class="recommendations">
+                                        <h5>AI Recommendations:</h5>
+                                        <ul>
+                                            <li>Build specialized gymnasiums</li>
+                                            <li>Import international coaches</li>
+                                            <li>Focus on early age recruitment</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <button class="btn-primary" onclick="createSupportPlan(this)">
+                                    <i class="fas fa-plus"></i>
+                                    Create Support Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gender Diversity Analytics -->
+                <div class="insights-section">
+                    <h3>⚖️ Gender Diversity Analytics</h3>
+                    <div class="diversity-grid">
+                        <div class="diversity-card">
+                            <div class="diversity-header">
+                                <h4>Current Gender Distribution</h4>
+                            </div>
+                            <div class="diversity-stats">
+                                <div class="gender-stat">
+                                    <div class="gender-icon male">
+                                        <i class="fas fa-male"></i>
+                                    </div>
+                                    <div class="gender-info">
+                                        <span class="gender-label">Male Athletes</span>
+                                        <span class="gender-count">1,847 (65%)</span>
+                                    </div>
+                                </div>
+                                <div class="gender-stat">
+                                    <div class="gender-icon female">
+                                        <i class="fas fa-female"></i>
+                                    </div>
+                                    <div class="gender-info">
+                                        <span class="gender-label">Female Athletes</span>
+                                        <span class="gender-count">1,000 (35%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="diversity-chart">
+                                <canvas id="genderChart" width="300" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="diversity-card">
+                            <div class="diversity-header">
+                                <h4>Gender Gap Analysis</h4>
+                            </div>
+                            <div class="gap-analysis">
+                                <div class="gap-item">
+                                    <span class="gap-label">Participation Gap:</span>
+                                    <span class="gap-value negative">-30%</span>
+                                </div>
+                                <div class="gap-item">
+                                    <span class="gap-label">Success Rate Gap:</span>
+                                    <span class="gap-value negative">-8%</span>
+                                </div>
+                                <div class="gap-item">
+                                    <span class="gap-label">Elite Pipeline Gap:</span>
+                                    <span class="gap-value negative">-15%</span>
+                                </div>
+                            </div>
+                            <div class="recommendations">
+                                <h5>AI Recommendations:</h5>
+                                <ul>
+                                    <li>Launch "Girls in Sports" campaign</li>
+                                    <li>Provide safe training environments</li>
+                                    <li>Offer female coach mentorship programs</li>
+                                    <li>Create women-only training sessions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Insights Summary -->
+                <div class="insights-summary">
+                    <h3>🤖 AI Insights Summary</h3>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <div class="summary-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h4>Top Performing States</h4>
+                                <p>Punjab, Haryana, and Kerala show exceptional talent identification rates</p>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h4>Areas of Concern</h4>
+                                <p>Bihar and Jharkhand need immediate intervention and support</p>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h4>Growth Opportunities</h4>
+                                <p>Weightlifting and Gymnastics have untapped potential</p>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h4>Gender Equity</h4>
+                                <p>Female participation needs targeted improvement programs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div class="tab-content" id="analytics">
+                <div class="page-header">
+                    <h2>Advanced Analytics</h2>
+                    <div class="header-actions">
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i>
+                            Export Analytics
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Analytics Grid -->
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Geographic Distribution</h3>
+                        <canvas id="geographicChart"></canvas>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Age Distribution</h3>
+                        <canvas id="ageDistributionChart"></canvas>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Sport Performance</h3>
+                        <canvas id="sportPerformanceChart"></canvas>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Success Rate Trends</h3>
+                        <canvas id="successRateChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- AI Insights -->
+                <div class="ai-insights">
+                    <h3>🤖 AI-Powered Insights</h3>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Predictive Analysis</h4>
+                                <p>Based on current trends, India is projected to identify 500+ elite athletes by 2025, positioning us as a top-10 Olympic nation.</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Performance Optimization</h4>
+                                <p>Focusing on 16-18 age group in Punjab and Haryana could increase elite athlete identification by 40%.</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Global Benchmarking</h4>
+                                <p>Current success rate of 12% exceeds global average of 8.5%, indicating effective talent identification methodology.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div class="tab-content" id="reports">
+                <div class="page-header">
+                    <h2>Reports & Documentation</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Generate New Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Report Templates -->
+                <div class="report-templates">
+                    <h3>📄 Report Templates</h3>
+                    <div class="templates-grid">
+                        <div class="template-card">
+                            <div class="template-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div class="template-content">
+                                <h4>National Summary Report</h4>
+                                <p>Comprehensive overview of national talent identification program</p>
+                                <button class="btn-secondary">Generate</button>
+                            </div>
+                        </div>
+                        <div class="template-card">
+                            <div class="template-icon">
+                                <i class="fas fa-map"></i>
+                            </div>
+                            <div class="template-content">
+                                <h4>State Performance Report</h4>
+                                <p>Detailed state-wise analysis and performance metrics</p>
+                                <button class="btn-secondary">Generate</button>
+                            </div>
+                        </div>
+                        <div class="template-card">
+                            <div class="template-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="template-content">
+                                <h4>Elite Athletes Report</h4>
+                                <p>Profiles and analysis of elite athletes with national team potential</p>
+                                <button class="btn-secondary">Generate</button>
+                            </div>
+                        </div>
+                        <div class="template-card">
+                            <div class="template-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="template-content">
+                                <h4>Analytics Report</h4>
+                                <p>Statistical analysis and trends in talent identification</p>
+                                <button class="btn-secondary">Generate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Reports -->
+                <div class="recent-reports">
+                    <h3>📋 Recent Reports</h3>
+                    <div class="reports-list">
+                        <div class="report-item">
+                            <div class="report-info">
+                                <h4>National Talent Report - December 2024</h4>
+                                <p>Generated on Dec 15, 2024 • 2,847 athletes analyzed</p>
+                            </div>
+                            <div class="report-actions">
+                                <button class="action-btn"><i class="fas fa-download"></i></button>
+                                <button class="action-btn"><i class="fas fa-share"></i></button>
+                                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                        <div class="report-item">
+                            <div class="report-info">
+                                <h4>State Performance Analysis - November 2024</h4>
+                                <p>Generated on Dec 1, 2024 • 18 states analyzed</p>
+                            </div>
+                            <div class="report-actions">
+                                <button class="action-btn"><i class="fas fa-download"></i></button>
+                                <button class="action-btn"><i class="fas fa-share"></i></button>
+                                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                        <div class="report-item">
+                            <div class="report-info">
+                                <h4>Elite Athletes Profile - October 2024</h4>
+                                <p>Generated on Nov 15, 2024 • 23 elite athletes profiled</p>
+                            </div>
+                            <div class="report-actions">
+                                <button class="action-btn"><i class="fas fa-download"></i></button>
+                                <button class="action-btn"><i class="fas fa-share"></i></button>
+                                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="government-dashboard.js"></script>
+</body>
+</html>
+
+

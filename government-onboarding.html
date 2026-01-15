@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Official Registration - GloSpot</title>
+    <link rel="stylesheet" href="government-onboarding.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="onboarding-container">
+        <!-- Header -->
+        <header class="onboarding-header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-flag"></i>
+                    <div class="logo-text">
+                        <span>GloSpot Government</span>
+                        <p>Sports Authority of India</p>
+                    </div>
+                </div>
+                <div class="progress-indicator">
+                    <span class="step-text">Step <span id="current-step">1</span> of 4</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="onboarding-main">
+            <!-- Step 1: Basic Details -->
+            <div class="onboarding-step active" id="step-1">
+                <div class="step-header">
+                    <h2>Official Information</h2>
+                    <p>Please provide your official government details</p>
+                </div>
+                
+                <form class="onboarding-form" id="basic-details-form">
+                    <div class="form-group">
+                        <label for="official-name">Full Official Name *</label>
+                        <input type="text" id="official-name" name="officialName" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dept-email">Department Email *</label>
+                            <input type="email" id="dept-email" name="deptEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Official Mobile *</label>
+                            <input type="tel" id="mobile" name="mobile" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="designation">Official Designation *</label>
+                        <input type="text" id="designation" name="designation" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="employee-id">Employee ID/Service Number *</label>
+                        <input type="text" id="employee-id" name="employeeId" required>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 2: Role Selection -->
+            <div class="onboarding-step" id="step-2">
+                <div class="step-header">
+                    <h2>Role & Access Level</h2>
+                    <p>Select your role and access permissions</p>
+                </div>
+                
+                <form class="onboarding-form" id="role-form">
+                    <div class="form-group">
+                        <label>Your Role *</label>
+                        <div class="role-grid">
+                            <div class="role-option selected-role">
+                                <input type="radio" id="national-admin" name="role" value="national-admin" checked required>
+                                <label for="national-admin">
+                                    <div class="role-icon">
+                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                    <div class="role-content">
+                                        <h4>Government Official (Full Access)</h4>
+                                        <p>Complete access to all national data, state analysis, and AI insights</p>
+                                        <span class="access-level">Full National Access</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="access-info">
+                        <h4>Full Access Capabilities:</h4>
+                        <ul>
+                            <li><strong>National Overview:</strong> View all states, generate national reports, manage system settings</li>
+                            <li><strong>State Analysis:</strong> Access detailed state-wise performance data and comparisons</li>
+                            <li><strong>AI Insights:</strong> Future stars prediction, state performance analysis, gender diversity analytics</li>
+                            <li><strong>Talent Pipeline:</strong> Complete oversight of national talent identification process</li>
+                            <li><strong>Scouting Reports:</strong> Download athlete shortlists and flag candidates for trials</li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 3: Affiliation -->
+            <div class="onboarding-step" id="step-3">
+                <div class="step-header">
+                    <h2>Department Affiliation</h2>
+                    <p>Select your government department and jurisdiction</p>
+                </div>
+                
+                <form class="onboarding-form" id="affiliation-form">
+                    <div class="form-group">
+                        <label for="department">Department/Ministry *</label>
+                        <select id="department" name="department" required>
+                            <option value="">Select Department</option>
+                            <option value="sai">Sports Authority of India (SAI)</option>
+                            <option value="youth-sports">Ministry of Youth Affairs & Sports</option>
+                            <option value="education">Ministry of Education</option>
+                            <option value="other">Other Government Department</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jurisdiction">Jurisdiction *</label>
+                        <select id="jurisdiction" name="jurisdiction" required>
+                            <option value="">Select Jurisdiction</option>
+                            <option value="national">National Level (All India)</option>
+                            <option value="north-zone">North Zone (Delhi, Punjab, Haryana, etc.)</option>
+                            <option value="south-zone">South Zone (Karnataka, Tamil Nadu, Kerala, etc.)</option>
+                            <option value="east-zone">East Zone (West Bengal, Odisha, Jharkhand, etc.)</option>
+                            <option value="west-zone">West Zone (Maharashtra, Gujarat, Rajasthan, etc.)</option>
+                            <option value="central-zone">Central Zone (Madhya Pradesh, Chhattisgarh, etc.)</option>
+                            <option value="northeast-zone">Northeast Zone (Assam, Manipur, Mizoram, etc.)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="office-address">Office Address</label>
+                        <textarea id="office-address" name="officeAddress" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 4: Verification -->
+            <div class="onboarding-step" id="step-4">
+                <div class="step-header">
+                    <h2>Document Verification</h2>
+                    <p>Upload required government documents for verification</p>
+                </div>
+                
+                <form class="onboarding-form" id="verification-form">
+                    <div class="verification-section">
+                        <h3>Required Documents</h3>
+                        <div class="document-upload">
+                            <div class="upload-item">
+                                <div class="upload-icon">
+                                    <i class="fas fa-id-card"></i>
+                                </div>
+                                <div class="upload-content">
+                                    <h4>Government ID Proof</h4>
+                                    <p>Upload official government ID (Aadhaar, PAN, Service ID)</p>
+                                    <div class="file-upload">
+                                        <input type="file" id="govt-id" name="govtId" accept=".pdf,.jpg,.jpeg,.png" required>
+                                        <label for="govt-id" class="upload-btn">
+                                            <i class="fas fa-upload"></i>
+                                            Choose File
+                                        </label>
+                                        <span class="file-name" id="govt-id-name">No file chosen</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="upload-item">
+                                <div class="upload-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="upload-content">
+                                    <h4>Department Authorization</h4>
+                                    <p>Upload department letter or authorization certificate</p>
+                                    <div class="file-upload">
+                                        <input type="file" id="dept-auth" name="deptAuth" accept=".pdf,.jpg,.jpeg,.png" required>
+                                        <label for="dept-auth" class="upload-btn">
+                                            <i class="fas fa-upload"></i>
+                                            Choose File
+                                        </label>
+                                        <span class="file-name" id="dept-auth-name">No file chosen</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verification-section">
+                        <h3>Additional Information</h3>
+                        <div class="form-group">
+                            <label for="supervisor-name">Supervisor/Reporting Officer Name</label>
+                            <input type="text" id="supervisor-name" name="supervisorName">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="supervisor-email">Supervisor Email</label>
+                            <input type="email" id="supervisor-email" name="supervisorEmail">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="purpose">Purpose of Access</label>
+                            <textarea id="purpose" name="purpose" rows="3" placeholder="Describe the purpose of accessing the talent identification system..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="terms-section">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the <a href="#" class="terms-link">Government Data Usage Policy</a> and <a href="#" class="terms-link">Official Secrecy Act</a></label>
+                        </div>
+                        
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="verification" name="verification" required>
+                            <label for="verification">I understand that my access will be pending admin approval and subject to department verification</label>
+                        </div>
+                        
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="data-security" name="dataSecurity" required>
+                            <label for="data-security">I will maintain data security and confidentiality as per government guidelines</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success Step -->
+            <div class="onboarding-step" id="step-success">
+                <div class="success-content">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>Registration Submitted Successfully!</h2>
+                    <p>Your government official registration has been submitted and is pending admin approval.</p>
+                    
+                    <div class="success-details">
+                        <div class="detail-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security verification typically takes 3-5 business days</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>You'll receive an email notification once approved</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            <span>Contact SAI IT support for any queries</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-lock"></i>
+                            <span>Your access will be restricted until verification is complete</span>
+                        </div>
+                    </div>
+                    
+                    <div class="success-actions">
+                        <button class="btn-primary" onclick="window.location.href='government-dashboard.html'">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Go to Dashboard
+                        </button>
+                        <button class="btn-secondary" onclick="window.location.href='index.html'">
+                            <i class="fas fa-home"></i>
+                            Back to Home
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Navigation -->
+        <footer class="onboarding-footer">
+            <button class="btn-secondary" id="prev-btn" onclick="previousStep()" disabled>
+                <i class="fas fa-arrow-left"></i>
+                Previous
+            </button>
+            <button class="btn-primary" id="next-btn" onclick="nextStep()">
+                Next
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </footer>
+    </div>
+
+    <script src="government-onboarding.js"></script>
+</body>
+</html>

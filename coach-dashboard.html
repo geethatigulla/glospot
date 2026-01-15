@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GloSpot Coach Dashboard</title>
+    <link rel="stylesheet" href="coach-dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1><i class="fas fa-running"></i> GloSpot Coach</h1>
+                    <p>Advanced Athlete Analytics Dashboard</p>
+                </div>
+                <div class="user-section">
+                    <div class="user-info">
+                        <img src="https://via.placeholder.com/40x40/4CAF50/white?text=JD" alt="Coach" class="user-avatar">
+                        <div class="user-details">
+                            <span class="user-name">Coach John Doe</span>
+                            <span class="user-role">Head Coach - Athletics</span>
+                        </div>
+                    </div>
+                    <button class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="dashboard-nav">
+            <div class="nav-item active" data-tab="overview">
+                <i class="fas fa-chart-line"></i>
+                <span>Overview</span>
+            </div>
+            <div class="nav-item" data-tab="athletes">
+                <i class="fas fa-users"></i>
+                <span>Athletes</span>
+            </div>
+            <div class="nav-item" data-tab="performance">
+                <i class="fas fa-trophy"></i>
+                <span>Performance</span>
+            </div>
+            <div class="nav-item" data-tab="scouting">
+                <i class="fas fa-search"></i>
+                <span>Scouting</span>
+            </div>
+            <div class="nav-item" data-tab="training">
+                <i class="fas fa-dumbbell"></i>
+                <span>Training</span>
+            </div>
+            <div class="nav-item" data-tab="live-monitoring">
+                <i class="fas fa-video"></i>
+                <span>Live Monitoring</span>
+            </div>
+            <div class="nav-item" data-tab="team-management">
+                <i class="fas fa-users-cog"></i>
+                <span>Team Management</span>
+            </div>
+            <div class="nav-item" data-tab="communication">
+                <i class="fas fa-comments"></i>
+                <span>Communication</span>
+            </div>
+            <div class="nav-item" data-tab="analytics">
+                <i class="fas fa-chart-bar"></i>
+                <span>Analytics</span>
+            </div>
+            <div class="nav-item" data-tab="reports">
+                <i class="fas fa-file-alt"></i>
+                <span>Reports</span>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="overview">
+                <div class="page-header">
+                    <h2>Dashboard Overview</h2>
+                    <div class="date-range">
+                        <i class="fas fa-calendar"></i>
+                        <span>Last 30 Days</span>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>156</h3>
+                            <p>Total Athletes</p>
+                            <span class="stat-change positive">+12 this week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>23</h3>
+                            <p>Qualified Athletes</p>
+                            <span class="stat-change positive">+3 this week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>5</h3>
+                            <p>Elite Athletes</p>
+                            <span class="stat-change neutral">No change</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>87%</h3>
+                            <p>Success Rate</p>
+                            <span class="stat-change positive">+5% this month</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <div class="chart-container">
+                        <h3>Performance Trends</h3>
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Athlete Distribution</h3>
+                        <canvas id="distributionChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Rajesh Kumar</strong> achieved new personal best in Vertical Jump: 28.5 inches</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Priya Sharma</strong> completed fitness assessment</p>
+                                <span class="activity-time">4 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p>Team average improved by 12% this week</p>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Athletes Tab -->
+            <div class="tab-content" id="athletes">
+                <div class="page-header">
+                    <h2>Athlete Management</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add Athlete
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i>
+                            Export Data
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-section">
+                    <div class="filter-group">
+                        <label>Sport Category:</label>
+                        <select class="filter-select">
+                            <option value="all">All Sports</option>
+                            <option value="athletics">Athletics</option>
+                            <option value="basketball">Basketball</option>
+                            <option value="football">Football</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Performance Level:</label>
+                        <select class="filter-select">
+                            <option value="all">All Levels</option>
+                            <option value="elite">Elite</option>
+                            <option value="qualified">Qualified</option>
+                            <option value="screening">Screening</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Search:</label>
+                        <input type="text" class="filter-input" placeholder="Search athletes...">
+                    </div>
+                </div>
+
+                <!-- Athletes Table -->
+                <div class="table-container">
+                    <table class="athletes-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Sport</th>
+                                <th>Vertical Jump</th>
+                                <th>Push-ups</th>
+                                <th>Squats</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="athlete-info">
+                                        <img src="https://via.placeholder.com/32x32/4CAF50/white?text=RK" alt="Rajesh" class="athlete-avatar">
+                                        <span>Rajesh Kumar</span>
+                                    </div>
+                                </td>
+                                <td>18</td>
+                                <td>Athletics</td>
+                                <td><span class="score excellent">28.5"</span></td>
+                                <td><span class="score good">42</span></td>
+                                <td><span class="score excellent">58</span></td>
+                                <td><span class="status elite">Elite</span></td>
+                                <td>
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="athlete-info">
+                                        <img src="https://via.placeholder.com/32x32/2196F3/white?text=PS" alt="Priya" class="athlete-avatar">
+                                        <span>Priya Sharma</span>
+                                    </div>
+                                </td>
+                                <td>17</td>
+                                <td>Basketball</td>
+                                <td><span class="score good">24.2"</span></td>
+                                <td><span class="score excellent">38</span></td>
+                                <td><span class="score good">45</span></td>
+                                <td><span class="status qualified">Qualified</span></td>
+                                <td>
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="athlete-info">
+                                        <img src="https://via.placeholder.com/32x32/FF9800/white?text=AS" alt="Amit" class="athlete-avatar">
+                                        <span>Amit Singh</span>
+                                    </div>
+                                </td>
+                                <td>19</td>
+                                <td>Football</td>
+                                <td><span class="score good">25.8"</span></td>
+                                <td><span class="score good">35</span></td>
+                                <td><span class="score excellent">52</span></td>
+                                <td><span class="status qualified">Qualified</span></td>
+                                <td>
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="athlete-info">
+                                        <img src="https://via.placeholder.com/32x32/9C27B0/white?text=SM" alt="Sneha" class="athlete-avatar">
+                                        <span>Sneha Mehta</span>
+                                    </div>
+                                </td>
+                                <td>16</td>
+                                <td>Athletics</td>
+                                <td><span class="score average">22.1"</span></td>
+                                <td><span class="score good">32</span></td>
+                                <td><span class="score good">41</span></td>
+                                <td><span class="status screening">Screening</span></td>
+                                <td>
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Performance Tab -->
+            <div class="tab-content" id="performance">
+                <div class="page-header">
+                    <h2>Performance Analysis</h2>
+                    <div class="date-range">
+                        <i class="fas fa-calendar"></i>
+                        <span>Last 30 Days</span>
+                    </div>
+                </div>
+
+                <!-- Performance Metrics -->
+                <div class="performance-metrics">
+                    <div class="metric-card">
+                        <h3>Vertical Jump Performance</h3>
+                        <div class="metric-chart">
+                            <canvas id="verticalJumpChart"></canvas>
+                        </div>
+                        <div class="metric-stats">
+                            <div class="metric-stat">
+                                <span class="label">Team Average:</span>
+                                <span class="value">24.2 inches</span>
+                            </div>
+                            <div class="metric-stat">
+                                <span class="label">Best Performance:</span>
+                                <span class="value">28.5 inches</span>
+                            </div>
+                            <div class="metric-stat">
+                                <span class="label">Improvement:</span>
+                                <span class="value positive">+12% this month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <h3>Push-up Performance</h3>
+                        <div class="metric-chart">
+                            <canvas id="pushupChart"></canvas>
+                        </div>
+                        <div class="metric-stats">
+                            <div class="metric-stat">
+                                <span class="label">Team Average:</span>
+                                <span class="value">36.8 reps</span>
+                            </div>
+                            <div class="metric-stat">
+                                <span class="label">Best Performance:</span>
+                                <span class="value">42 reps</span>
+                            </div>
+                            <div class="metric-stat">
+                                <span class="label">Improvement:</span>
+                                <span class="value positive">+8% this month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Performers -->
+                <div class="top-performers">
+                    <h3>Top Performers</h3>
+                    <div class="performers-grid">
+                        <div class="performer-card">
+                            <div class="performer-rank">1</div>
+                            <div class="performer-info">
+                                <img src="https://via.placeholder.com/60x60/4CAF50/white?text=RK" alt="Rajesh" class="performer-avatar">
+                                <div class="performer-details">
+                                    <h4>Rajesh Kumar</h4>
+                                    <p>Athletics</p>
+                                </div>
+                            </div>
+                            <div class="performer-score">
+                                <span class="score">28.5"</span>
+                                <span class="test">Vertical Jump</span>
+                            </div>
+                        </div>
+                        <div class="performer-card">
+                            <div class="performer-rank">2</div>
+                            <div class="performer-info">
+                                <img src="https://via.placeholder.com/60x60/2196F3/white?text=PS" alt="Priya" class="performer-avatar">
+                                <div class="performer-details">
+                                    <h4>Priya Sharma</h4>
+                                    <p>Basketball</p>
+                                </div>
+                            </div>
+                            <div class="performer-score">
+                                <span class="score">38</span>
+                                <span class="test">Push-ups</span>
+                            </div>
+                        </div>
+                        <div class="performer-card">
+                            <div class="performer-rank">3</div>
+                            <div class="performer-info">
+                                <img src="https://via.placeholder.com/60x60/FF9800/white?text=AS" alt="Amit" class="performer-avatar">
+                                <div class="performer-details">
+                                    <h4>Amit Singh</h4>
+                                    <p>Football</p>
+                                </div>
+                            </div>
+                            <div class="performer-score">
+                                <span class="score">52</span>
+                                <span class="test">Squats</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div class="tab-content" id="analytics">
+                <div class="page-header">
+                    <h2>Advanced Analytics</h2>
+                    <div class="header-actions">
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i>
+                            Export Analytics
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Analytics Grid -->
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Age Distribution</h3>
+                        <canvas id="ageDistributionChart"></canvas>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Sport Distribution</h3>
+                        <canvas id="sportDistributionChart"></canvas>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Performance Correlation</h3>
+                        <canvas id="correlationChart"></canvas>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Improvement Trends</h3>
+                        <canvas id="improvementChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Insights -->
+                <div class="insights-section">
+                    <h3>AI-Powered Insights</h3>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Performance Prediction</h4>
+                                <p>Based on current trends, 3 athletes are likely to qualify for national level competitions within 6 months.</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Training Optimization</h4>
+                                <p>Focus on plyometric training for athletes aged 16-18 to maximize vertical jump improvements.</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Talent Identification</h4>
+                                <p>5 new athletes show exceptional potential and should be prioritized for advanced training programs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div class="tab-content" id="reports">
+                <div class="page-header">
+                    <h2>Reports & Documentation</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Generate Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Report Templates -->
+                <div class="report-templates">
+                    <h3>Report Templates</h3>
+                    <div class="templates-grid">
+                        <div class="template-card">
+                            <div class="template-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="template-content">
+                                <h4>Performance Summary</h4>
+                                <p>Comprehensive overview of team performance metrics</p>
+                                <button class="btn-secondary">Generate</button>
+                            </div>
+                        </div>
+                        <div class="template-card">
+                            <div class="template-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="template-content">
+                                <h4>Individual Athlete Report</h4>
+                                <p>Detailed analysis of specific athlete performance</p>
+                                <button class="btn-secondary">Generate</button>
+                            </div>
+                        </div>
+                        <div class="template-card">
+                            <div class="template-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="template-content">
+                                <h4>Monthly Progress Report</h4>
+                                <p>Monthly progress tracking and improvement analysis</p>
+                                <button class="btn-secondary">Generate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Reports -->
+                <div class="recent-reports">
+                    <h3>Recent Reports</h3>
+                    <div class="reports-list">
+                        <div class="report-item">
+                            <div class="report-info">
+                                <h4>Team Performance Summary - December 2024</h4>
+                                <p>Generated on Dec 15, 2024</p>
+                            </div>
+                            <div class="report-actions">
+                                <button class="action-btn"><i class="fas fa-download"></i></button>
+                                <button class="action-btn"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                        <div class="report-item">
+                            <div class="report-info">
+                                <h4>Individual Report - Rajesh Kumar</h4>
+                                <p>Generated on Dec 12, 2024</p>
+                            </div>
+                            <div class="report-actions">
+                                <button class="action-btn"><i class="fas fa-download"></i></button>
+                                <button class="action-btn"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                        <div class="report-item">
+                            <div class="report-info">
+                                <h4>Monthly Progress Report - November 2024</h4>
+                                <p>Generated on Dec 1, 2024</p>
+                            </div>
+                            <div class="report-actions">
+                                <button class="action-btn"><i class="fas fa-download"></i></button>
+                                <button class="action-btn"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scouting Tab -->
+            <div class="tab-content" id="scouting">
+                <div class="page-header">
+                    <h2>Scouting & Validation</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add Validation
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pending Validations -->
+                <div class="pending-validations">
+                    <h3>🔍 Pending AI Validations</h3>
+                    <div class="validation-list">
+                        <div class="validation-item">
+                            <div class="validation-header">
+                                <div class="athlete-info">
+                                    <img src="https://via.placeholder.com/40x40/4CAF50/white?text=RK" alt="Rajesh" class="athlete-avatar">
+                                    <div class="athlete-details">
+                                        <h4>Rajesh Kumar</h4>
+                                        <p>Vertical Jump Test - 28.5 inches</p>
+                                        <span class="test-date">Dec 15, 2024</span>
+                                    </div>
+                                </div>
+                                <div class="validation-status">
+                                    <span class="status-flag suspicious">⚠️ Suspicious</span>
+                                </div>
+                            </div>
+                            <div class="validation-details">
+                                <div class="ai-analysis">
+                                    <h5>AI Analysis Results:</h5>
+                                    <div class="analysis-factors">
+                                        <div class="factor">
+                                            <span class="label">Pose Consistency:</span>
+                                            <span class="score low">65%</span>
+                                        </div>
+                                        <div class="factor">
+                                            <span class="label">Movement Naturalness:</span>
+                                            <span class="score medium">78%</span>
+                                        </div>
+                                        <div class="factor">
+                                            <span class="label">Timing Analysis:</span>
+                                            <span class="score low">62%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="validation-actions">
+                                    <button class="btn-success" onclick="approveValidation(this)">
+                                        <i class="fas fa-check"></i>
+                                        Approve
+                                    </button>
+                                    <button class="btn-danger" onclick="rejectValidation(this)">
+                                        <i class="fas fa-times"></i>
+                                        Reject
+                                    </button>
+                                    <button class="btn-secondary" onclick="addRemarks(this)">
+                                        <i class="fas fa-comment"></i>
+                                        Add Remarks
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="validation-item">
+                            <div class="validation-header">
+                                <div class="athlete-info">
+                                    <img src="https://via.placeholder.com/40x40/2196F3/white?text=PS" alt="Priya" class="athlete-avatar">
+                                    <div class="athlete-details">
+                                        <h4>Priya Sharma</h4>
+                                        <p>Push-up Test - 38 reps</p>
+                                        <span class="test-date">Dec 14, 2024</span>
+                                    </div>
+                                </div>
+                                <div class="validation-status">
+                                    <span class="status-flag excellent">✅ Excellent</span>
+                                </div>
+                            </div>
+                            <div class="validation-details">
+                                <div class="ai-analysis">
+                                    <h5>AI Analysis Results:</h5>
+                                    <div class="analysis-factors">
+                                        <div class="factor">
+                                            <span class="label">Form Consistency:</span>
+                                            <span class="score high">94%</span>
+                                        </div>
+                                        <div class="factor">
+                                            <span class="label">Range of Motion:</span>
+                                            <span class="score high">92%</span>
+                                        </div>
+                                        <div class="factor">
+                                            <span class="label">Pace Consistency:</span>
+                                            <span class="score high">89%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="validation-actions">
+                                    <button class="btn-success" onclick="approveValidation(this)">
+                                        <i class="fas fa-check"></i>
+                                        Approve
+                                    </button>
+                                    <button class="btn-danger" onclick="rejectValidation(this)">
+                                        <i class="fas fa-times"></i>
+                                        Reject
+                                    </button>
+                                    <button class="btn-secondary" onclick="addRemarks(this)">
+                                        <i class="fas fa-comment"></i>
+                                        Add Remarks
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Government Pipeline -->
+                <div class="government-pipeline">
+                    <h3>🏛️ Government Pipeline Forwarding</h3>
+                    <div class="pipeline-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>23</h3>
+                                <p>Approved for Pipeline</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>5</h3>
+                                <p>Pending Review</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>3</h3>
+                                <p>Elite Candidates</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-upload"></i>
+                            Forward to SAI
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i>
+                            Export Pipeline Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training Tab -->
+            <div class="tab-content" id="training">
+                <div class="page-header">
+                    <h2>Training & Mentorship</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Create Training Plan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AI Training Plans -->
+                <div class="training-plans">
+                    <h3>🤖 AI-Generated Training Plans</h3>
+                    <div class="plans-grid">
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h4>Vertical Jump Enhancement</h4>
+                                <span class="plan-difficulty beginner">Beginner</span>
+                            </div>
+                            <div class="plan-content">
+                                <p>8-week program focusing on plyometric exercises and strength training</p>
+                                <div class="plan-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>8 weeks</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-dumbbell"></i>
+                                        <span>3x/week</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-clock"></i>
+                                        <span>45 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="plan-actions">
+                                <button class="btn-primary" onclick="assignPlan(this)">
+                                    <i class="fas fa-user-plus"></i>
+                                    Assign to Athlete
+                                </button>
+                                <button class="btn-secondary">
+                                    <i class="fas fa-eye"></i>
+                                    Preview
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h4>Core Strength Development</h4>
+                                <span class="plan-difficulty intermediate">Intermediate</span>
+                            </div>
+                            <div class="plan-content">
+                                <p>6-week program targeting core stability and functional strength</p>
+                                <div class="plan-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>6 weeks</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-dumbbell"></i>
+                                        <span>4x/week</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-clock"></i>
+                                        <span>30 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="plan-actions">
+                                <button class="btn-primary" onclick="assignPlan(this)">
+                                    <i class="fas fa-user-plus"></i>
+                                    Assign to Athlete
+                                </button>
+                                <button class="btn-secondary">
+                                    <i class="fas fa-eye"></i>
+                                    Preview
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h4>Endurance Building</h4>
+                                <span class="plan-difficulty advanced">Advanced</span>
+                            </div>
+                            <div class="plan-content">
+                                <p>12-week program for cardiovascular fitness and stamina</p>
+                                <div class="plan-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>12 weeks</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-dumbbell"></i>
+                                        <span>5x/week</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-clock"></i>
+                                        <span>60 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="plan-actions">
+                                <button class="btn-primary" onclick="assignPlan(this)">
+                                    <i class="fas fa-user-plus"></i>
+                                    Assign to Athlete
+                                </button>
+                                <button class="btn-secondary">
+                                    <i class="fas fa-eye"></i>
+                                    Preview
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assigned Workouts -->
+                <div class="assigned-workouts">
+                    <h3>📋 Assigned Workouts</h3>
+                    <div class="workouts-table-container">
+                        <table class="workouts-table">
+                            <thead>
+                                <tr>
+                                    <th>Athlete</th>
+                                    <th>Training Plan</th>
+                                    <th>Progress</th>
+                                    <th>Next Session</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="athlete-info">
+                                            <img src="https://via.placeholder.com/32x32/4CAF50/white?text=RK" alt="Rajesh" class="athlete-avatar">
+                                            <span>Rajesh Kumar</span>
+                                        </div>
+                                    </td>
+                                    <td>Vertical Jump Enhancement</td>
+                                    <td>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 75%"></div>
+                                        </div>
+                                        <span class="progress-text">6/8 weeks</span>
+                                    </td>
+                                    <td>Dec 18, 2024</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <button class="action-btn" onclick="viewProgress(this)">
+                                            <i class="fas fa-chart-line"></i>
+                                        </button>
+                                        <button class="action-btn" onclick="editPlan(this)">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="athlete-info">
+                                            <img src="https://via.placeholder.com/32x32/2196F3/white?text=PS" alt="Priya" class="athlete-avatar">
+                                            <span>Priya Sharma</span>
+                                        </div>
+                                    </td>
+                                    <td>Core Strength Development</td>
+                                    <td>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 50%"></div>
+                                        </div>
+                                        <span class="progress-text">3/6 weeks</span>
+                                    </td>
+                                    <td>Dec 17, 2024</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <button class="action-btn" onclick="viewProgress(this)">
+                                            <i class="fas fa-chart-line"></i>
+                                        </button>
+                                        <button class="action-btn" onclick="editPlan(this)">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="athlete-info">
+                                            <img src="https://via.placeholder.com/32x32/FF9800/white?text=AS" alt="Amit" class="athlete-avatar">
+                                            <span>Amit Singh</span>
+                                        </div>
+                                    </td>
+                                    <td>Endurance Building</td>
+                                    <td>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 25%"></div>
+                                        </div>
+                                        <span class="progress-text">3/12 weeks</span>
+                                    </td>
+                                    <td>Dec 16, 2024</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                    <td>
+                                        <button class="action-btn" onclick="viewProgress(this)">
+                                            <i class="fas fa-chart-line"></i>
+                                        </button>
+                                        <button class="action-btn" onclick="editPlan(this)">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Progress Reports -->
+                <div class="progress-reports">
+                    <h3>📊 Progress Reports</h3>
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h4>Rajesh Kumar - Week 6 Report</h4>
+                                <span class="report-date">Dec 15, 2024</span>
+                            </div>
+                            <div class="report-content">
+                                <div class="improvement-metrics">
+                                    <div class="metric">
+                                        <span class="label">Vertical Jump:</span>
+                                        <span class="value positive">+2.3 inches</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="label">Squat Strength:</span>
+                                        <span class="value positive">+15%</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="label">Session Attendance:</span>
+                                        <span class="value">100%</span>
+                                    </div>
+                                </div>
+                                <div class="coach-notes">
+                                    <h5>Coach Notes:</h5>
+                                    <p>Excellent progress! Rajesh has shown consistent improvement in explosive power. Recommend continuing current program.</p>
+                                </div>
+                            </div>
+                            <div class="report-actions">
+                                <button class="btn-secondary">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </button>
+                                <button class="btn-primary">
+                                    <i class="fas fa-share"></i>
+                                    Share with Athlete
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h4>Priya Sharma - Week 3 Report</h4>
+                                <span class="report-date">Dec 14, 2024</span>
+                            </div>
+                            <div class="report-content">
+                                <div class="improvement-metrics">
+                                    <div class="metric">
+                                        <span class="label">Core Stability:</span>
+                                        <span class="value positive">+22%</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="label">Plank Hold:</span>
+                                        <span class="value positive">+45 seconds</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="label">Session Attendance:</span>
+                                        <span class="value">95%</span>
+                                    </div>
+                                </div>
+                                <div class="coach-notes">
+                                    <h5>Coach Notes:</h5>
+                                    <p>Strong core development. Priya is exceeding expectations. Consider advancing to intermediate level exercises.</p>
+                                </div>
+                            </div>
+                            <div class="report-actions">
+                                <button class="btn-secondary">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </button>
+                                <button class="btn-primary">
+                                    <i class="fas fa-share"></i>
+                                    Share with Athlete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Monitoring Tab -->
+            <div class="tab-content" id="live-monitoring">
+                <div class="page-header">
+                    <h2>📹 Live Test Monitoring</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary" onclick="startLiveSession()">
+                            <i class="fas fa-video"></i>
+                            Start Live Session
+                        </button>
+                        <button class="btn-secondary" onclick="refreshMonitoring()">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Session Booking -->
+                <div class="session-booking-section">
+                    <div class="booking-header">
+                        <h3>📅 Live Session Booking</h3>
+                        <button class="btn-primary" onclick="openBookingModal()">
+                            <i class="fas fa-plus"></i>
+                            Book New Session
+                        </button>
+                    </div>
+                    
+                    <div class="booking-tabs">
+                        <button class="tab-btn active" onclick="switchBookingTab('upcoming')">Upcoming Sessions</button>
+                        <button class="tab-btn" onclick="switchBookingTab('live')">Live Now</button>
+                        <button class="tab-btn" onclick="switchBookingTab('completed')">Completed</button>
+                    </div>
+                    
+                    <!-- Upcoming Sessions -->
+                    <div class="booking-content" id="upcoming-sessions">
+                        <div class="session-card">
+                            <div class="session-info">
+                                <div class="session-time">
+                                    <span class="date">Today, 3:00 PM</span>
+                                    <span class="duration">60 minutes</span>
+                                </div>
+                                <div class="session-details">
+                                    <h4>Vertical Jump Assessment</h4>
+                                    <p>Group session with 5 athletes</p>
+                                    <div class="athletes-list">
+                                        <span class="athlete-tag">Rajesh Kumar</span>
+                                        <span class="athlete-tag">Priya Sharma</span>
+                                        <span class="athlete-tag">Amit Singh</span>
+                                        <span class="athlete-tag">+2 more</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="session-actions">
+                                <button class="btn-primary" onclick="startSession('session1')">
+                                    <i class="fas fa-play"></i>
+                                    Start Now
+                                </button>
+                                <button class="btn-secondary" onclick="editSession('session1')">
+                                    <i class="fas fa-edit"></i>
+                                    Edit
+                                </button>
+                                <button class="btn-secondary" onclick="cancelSession('session1')">
+                                    <i class="fas fa-times"></i>
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="session-card">
+                            <div class="session-info">
+                                <div class="session-time">
+                                    <span class="date">Tomorrow, 10:00 AM</span>
+                                    <span class="duration">90 minutes</span>
+                                </div>
+                                <div class="session-details">
+                                    <h4>Comprehensive Fitness Test</h4>
+                                    <p>Individual session with detailed analysis</p>
+                                    <div class="athletes-list">
+                                        <span class="athlete-tag">Sneha Patel</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="session-actions">
+                                <button class="btn-secondary" onclick="editSession('session2')">
+                                    <i class="fas fa-edit"></i>
+                                    Edit
+                                </button>
+                                <button class="btn-secondary" onclick="cancelSession('session2')">
+                                    <i class="fas fa-times"></i>
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Live Sessions -->
+                    <div class="booking-content" id="live-sessions" style="display: none;">
+                        <div class="session-card live-session">
+                            <div class="session-info">
+                                <div class="session-time">
+                                    <span class="date">🔴 LIVE NOW</span>
+                                    <span class="duration">45 minutes elapsed</span>
+                                </div>
+                                <div class="session-details">
+                                    <h4>Push-ups Assessment</h4>
+                                    <p>3 athletes currently being monitored</p>
+                                    <div class="live-athletes">
+                                        <div class="athlete-status">
+                                            <span class="athlete-name">Rajesh Kumar</span>
+                                            <span class="status-badge in-progress">In Progress</span>
+                                        </div>
+                                        <div class="athlete-status">
+                                            <span class="athlete-name">Priya Sharma</span>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                        <div class="athlete-status">
+                                            <span class="athlete-name">Amit Singh</span>
+                                            <span class="status-badge paused">Paused</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="session-actions">
+                                <button class="btn-primary" onclick="joinLiveSession('live1')">
+                                    <i class="fas fa-video"></i>
+                                    Join Session
+                                </button>
+                                <button class="btn-secondary" onclick="endSession('live1')">
+                                    <i class="fas fa-stop"></i>
+                                    End Session
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Completed Sessions -->
+                    <div class="booking-content" id="completed-sessions" style="display: none;">
+                        <div class="session-card completed">
+                            <div class="session-info">
+                                <div class="session-time">
+                                    <span class="date">Yesterday, 2:00 PM</span>
+                                    <span class="duration">Completed in 55 minutes</span>
+                                </div>
+                                <div class="session-details">
+                                    <h4>Speed & Agility Test</h4>
+                                    <p>4 athletes tested successfully</p>
+                                    <div class="session-results">
+                                        <span class="result-item">✅ All tests completed</span>
+                                        <span class="result-item">📊 Reports generated</span>
+                                        <span class="result-item">💾 Data saved</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="session-actions">
+                                <button class="btn-primary" onclick="viewSessionReport('completed1')">
+                                    <i class="fas fa-chart-line"></i>
+                                    View Report
+                                </button>
+                                <button class="btn-secondary" onclick="downloadSessionData('completed1')">
+                                    <i class="fas fa-download"></i>
+                                    Download Data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Session Overview -->
+                <div class="live-session-overview">
+                    <div class="session-stats">
+                        <div class="stat-card live">
+                            <div class="stat-icon">🔴</div>
+                            <div class="stat-content">
+                                <h3>3</h3>
+                                <p>Active Tests</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⏱️</div>
+                            <div class="stat-content">
+                                <h3>2:45</h3>
+                                <p>Avg Duration</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-content">
+                                <h3>12</h3>
+                                <p>Total Athletes</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📊</div>
+                            <div class="stat-content">
+                                <h3>87%</h3>
+                                <p>Success Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Video Feed Section -->
+                <div class="live-feed-section">
+                    <div class="video-container">
+                        <div class="main-video">
+                            <div class="video-placeholder">
+                                <i class="fas fa-video"></i>
+                                <h3>Live Test Feed</h3>
+                                <p>Select an athlete to start monitoring</p>
+                                <button class="btn-primary" onclick="startVideoFeed()">
+                                    <i class="fas fa-play"></i>
+                                    Start Video Feed
+                                </button>
+                            </div>
+                        </div>
+                        <div class="video-controls">
+                            <button class="control-btn active" onclick="toggleRecording()">
+                                <i class="fas fa-video"></i>
+                                <span>Recording</span>
+                            </button>
+                            <button class="control-btn" onclick="toggleAudio()">
+                                <i class="fas fa-microphone"></i>
+                                <span>Audio</span>
+                            </button>
+                            <button class="control-btn" onclick="toggleFullscreen()">
+                                <i class="fas fa-expand"></i>
+                                <span>Fullscreen</span>
+                            </button>
+                            <button class="control-btn" onclick="captureScreenshot()">
+                                <i class="fas fa-camera"></i>
+                                <span>Screenshot</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Tests with Enhanced UI -->
+                <div class="live-tests-section">
+                    <div class="section-header">
+                        <h3>🔴 Active Test Sessions</h3>
+                        <div class="session-filters">
+                            <select class="filter-select">
+                                <option>All Tests</option>
+                                <option>Vertical Jump</option>
+                                <option>Push-ups</option>
+                                <option>Sit-ups</option>
+                                <option>30m Sprint</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>All Status</option>
+                                <option>In Progress</option>
+                                <option>Completed</option>
+                                <option>Paused</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="live-tests-grid">
+                        <div class="live-test-card active">
+                            <div class="test-header">
+                                <div class="athlete-info">
+                                    <div class="athlete-avatar">RK</div>
+                                    <div class="athlete-details">
+                                        <h4>Rajesh Kumar</h4>
+                                        <p>Age 18 • Cricket</p>
+                                    </div>
+                                </div>
+                                <div class="test-status">
+                                    <span class="status-badge in-progress">In Progress</span>
+                                    <div class="live-indicator">🔴 LIVE</div>
+                                </div>
+                            </div>
+                            
+                            <div class="test-content">
+                                <div class="test-info">
+                                    <div class="info-row">
+                                        <span class="label">Test:</span>
+                                        <span class="value">Standing Vertical Jump</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="label">Started:</span>
+                                        <span class="value">2:30 PM</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="label">Duration:</span>
+                                        <span class="value">2:45</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="label">Best Attempt:</span>
+                                        <span class="value">68.5 cm</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="real-time-metrics">
+                                    <div class="metric">
+                                        <span class="metric-label">Current Jump</span>
+                                        <span class="metric-value">65.2 cm</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Attempts</span>
+                                        <span class="metric-value">3/5</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Form Score</span>
+                                        <span class="metric-value">85%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="test-actions">
+                                <button class="btn-primary" onclick="watchLive('rajesh')">
+                                    <i class="fas fa-eye"></i>
+                                    Watch Live
+                                </button>
+                                <button class="btn-secondary" onclick="viewDetails('rajesh')">
+                                    <i class="fas fa-info-circle"></i>
+                                    Details
+                                </button>
+                                <button class="btn-secondary" onclick="sendFeedback('rajesh')">
+                                    <i class="fas fa-comment"></i>
+                                    Feedback
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="live-test-card">
+                            <div class="test-header">
+                                <div class="athlete-info">
+                                    <div class="athlete-avatar">PS</div>
+                                    <div class="athlete-details">
+                                        <h4>Priya Sharma</h4>
+                                        <p>Age 17 • Basketball</p>
+                                    </div>
+                                </div>
+                                <div class="test-status">
+                                    <span class="status-badge completed">Completed</span>
+                                    <div class="completion-time">2:15 PM</div>
+                                </div>
+                            </div>
+                            
+                            <div class="test-content">
+                                <div class="test-info">
+                                    <div class="info-row">
+                                        <span class="label">Test:</span>
+                                        <span class="value">Push-ups</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="label">Duration:</span>
+                                        <span class="value">1:30</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="label">Final Score:</span>
+                                        <span class="value">42 reps</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="label">Grade:</span>
+                                        <span class="value grade-a">A</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="performance-chart">
+                                    <div class="chart-mini">
+                                        <div class="chart-bar" style="height: 85%"></div>
+                                        <span class="chart-label">Performance</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="test-actions">
+                                <button class="btn-primary" onclick="viewResults('priya')">
+                                    <i class="fas fa-chart-line"></i>
+                                    View Results
+                                </button>
+                                <button class="btn-secondary" onclick="sendFeedback('priya')">
+                                    <i class="fas fa-comment"></i>
+                                    Feedback
+                                </button>
+                                <button class="btn-secondary" onclick="downloadReport('priya')">
+                                    <i class="fas fa-download"></i>
+                                    Report
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="live-test-card">
+                            <div class="test-header">
+                                <div class="athlete-info">
+                                    <div class="athlete-avatar">AS</div>
+                                    <div class="athlete-details">
+                                        <h4>Amit Singh</h4>
+                                        <p>Age 19 • Football</p>
+                                    </div>
+                                </div>
+                                <div class="test-status">
+                                    <span class="status-badge paused">Paused</span>
+                                    <div class="pause-time">2:45 PM</div>
+                                </div>
+                            </div>
+                            
+                            <div class="test-content">
+                                <div class="test-info">
+                                    <div class="info-row">
+                                        <span class="label">Test:</span>
+                                        <span class="value">30m Standing Start</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="label">Started:</span>
+                                        <span class="value">2:40 PM</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="label">Best Time:</span>
+                                        <span class="value">4.2s</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="label">Attempts:</span>
+                                        <span class="value">2/3</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="pause-reason">
+                                    <span class="reason-label">Pause Reason:</span>
+                                    <span class="reason-text">Equipment adjustment</span>
+                                </div>
+                            </div>
+                            
+                            <div class="test-actions">
+                                <button class="btn-primary" onclick="resumeTest('amit')">
+                                    <i class="fas fa-play"></i>
+                                    Resume
+                                </button>
+                                <button class="btn-secondary" onclick="pauseTest('amit')">
+                                    <i class="fas fa-pause"></i>
+                                    Pause
+                                </button>
+                                <button class="btn-secondary" onclick="viewDetails('amit')">
+                                    <i class="fas fa-info-circle"></i>
+                                    Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Monitoring Controls -->
+                <div class="monitoring-controls">
+                    <h3>🎛️ Advanced Monitoring Controls</h3>
+                    <div class="controls-grid">
+                        <div class="control-group">
+                            <h4>Session Management</h4>
+                            <div class="control-buttons">
+                                <button class="control-btn primary" onclick="startNewSession()">
+                                    <i class="fas fa-plus"></i>
+                                    New Session
+                                </button>
+                                <button class="control-btn" onclick="pauseAllTests()">
+                                    <i class="fas fa-pause"></i>
+                                    Pause All
+                                </button>
+                                <button class="control-btn" onclick="endSession()">
+                                    <i class="fas fa-stop"></i>
+                                    End Session
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <h4>Recording & Analysis</h4>
+                            <div class="control-buttons">
+                                <button class="control-btn" onclick="toggleRecording()">
+                                    <i class="fas fa-video"></i>
+                                    Record
+                                </button>
+                                <button class="control-btn" onclick="captureScreenshot()">
+                                    <i class="fas fa-camera"></i>
+                                    Screenshot
+                                </button>
+                                <button class="control-btn" onclick="analyzeForm()">
+                                    <i class="fas fa-brain"></i>
+                                    AI Analysis
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <h4>Communication</h4>
+                            <div class="control-buttons">
+                                <button class="control-btn" onclick="broadcastMessage()">
+                                    <i class="fas fa-bullhorn"></i>
+                                    Broadcast
+                                </button>
+                                <button class="control-btn" onclick="sendFeedback()">
+                                    <i class="fas fa-comment"></i>
+                                    Feedback
+                                </button>
+                                <button class="control-btn" onclick="scheduleReminder()">
+                                    <i class="fas fa-clock"></i>
+                                    Reminder
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <h4>Data & Reports</h4>
+                            <div class="control-buttons">
+                                <button class="control-btn" onclick="exportData()">
+                                    <i class="fas fa-download"></i>
+                                    Export
+                                </button>
+                                <button class="control-btn" onclick="generateReport()">
+                                    <i class="fas fa-file-alt"></i>
+                                    Report
+                                </button>
+                                <button class="control-btn" onclick="viewAnalytics()">
+                                    <i class="fas fa-chart-bar"></i>
+                                    Analytics
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-time Notifications -->
+                <div class="notifications-panel">
+                    <h3>🔔 Live Notifications</h3>
+                    <div class="notifications-list">
+                        <div class="notification-item new">
+                            <div class="notification-icon">🏆</div>
+                            <div class="notification-content">
+                                <h4>New Personal Best!</h4>
+                                <p>Rajesh Kumar achieved 68.5cm in Vertical Jump</p>
+                                <span class="notification-time">2 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-icon">✅</div>
+                            <div class="notification-content">
+                                <h4>Test Completed</h4>
+                                <p>Priya Sharma finished Push-ups test with Grade A</p>
+                                <span class="notification-time">5 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-icon">⏸️</div>
+                            <div class="notification-content">
+                                <h4>Test Paused</h4>
+                                <p>Amit Singh's 30m Sprint test paused for equipment adjustment</p>
+                                <span class="notification-time">8 minutes ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Management Tab -->
+            <div class="tab-content" id="team-management">
+                <div class="page-header">
+                    <h2>👥 Team Management</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Create Team
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-upload"></i>
+                            Import Athletes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Teams Overview -->
+                <div class="teams-overview">
+                    <div class="teams-stats">
+                        <div class="stat-card">
+                            <h3>3</h3>
+                            <p>Total Teams</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>24</h3>
+                            <p>Total Athletes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teams List -->
+                <div class="teams-list">
+                    <div class="team-card">
+                        <div class="team-header">
+                            <h3>Elite Sprinters</h3>
+                            <div class="team-actions">
+                                <button class="btn-secondary">Edit</button>
+                                <button class="btn-primary">Manage</button>
+                            </div>
+                        </div>
+                        <div class="team-content">
+                            <div class="team-info">
+                                <p><strong>Sport:</strong> Track & Field</p>
+                                <p><strong>Members:</strong> 8</p>
+                                <p><strong>Coach:</strong> John Doe</p>
+                            </div>
+                            <div class="team-performance">
+                                <div class="performance-bar">
+                                    <div class="performance-fill" style="width: 75%"></div>
+                                </div>
+                                <p>Team Performance: 75%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Communication Tab -->
+            <div class="tab-content" id="communication">
+                <div class="page-header">
+                    <h2>💬 Communication</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            New Message
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Communication Stats -->
+                <div class="communication-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">💬</div>
+                        <div class="stat-content">
+                            <h3>12</h3>
+                            <p>Messages</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔔</div>
+                        <div class="stat-content">
+                            <h3>3</h3>
+                            <p>Unread</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages List -->
+                <div class="messages-list">
+                    <div class="message-card unread">
+                        <div class="message-header">
+                            <h4>Rajesh Kumar</h4>
+                            <span class="message-time">2 hours ago</span>
+                        </div>
+                        <div class="message-content">
+                            <p>Coach, I've been working on my vertical jump technique. Can we schedule a session to review my form?</p>
+                        </div>
+                        <div class="unread-indicator">●</div>
+                    </div>
+                    <div class="message-card">
+                        <div class="message-header">
+                            <h4>Priya Sharma</h4>
+                            <span class="message-time">1 day ago</span>
+                        </div>
+                        <div class="message-content">
+                            <p>Thank you for the feedback on my push-up form. I've been practicing the corrections you suggested.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Send Message -->
+                <div class="send-message">
+                    <h3>Send Message</h3>
+                    <div class="message-form">
+                        <select class="form-input">
+                            <option>Select Athlete</option>
+                            <option>Rajesh Kumar</option>
+                            <option>Priya Sharma</option>
+                            <option>Amit Singh</option>
+                        </select>
+                        <textarea class="form-input" placeholder="Type your message..."></textarea>
+                        <button class="btn-primary">Send Message</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Analytics Tab -->
+            <div class="tab-content" id="analytics">
+                <div class="page-header">
+                    <h2>📊 Advanced Analytics</h2>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-download"></i>
+                            Export Data
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Analytics Grid -->
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Comparative Analysis</h3>
+                        <div class="chart-placeholder">
+                            <p>📈 Performance vs. Peers</p>
+                            <div class="comparison-stats">
+                                <div class="comparison-item">
+                                    <span>Team Performance:</span>
+                                    <span class="value">85%</span>
+                                </div>
+                                <div class="comparison-item">
+                                    <span>League Average:</span>
+                                    <span class="value">72%</span>
+                                </div>
+                                <div class="comparison-item">
+                                    <span>Improvement:</span>
+                                    <span class="value positive">+13%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3>Trend Analysis</h3>
+                        <div class="chart-placeholder">
+                            <p>📊 Performance Trends</p>
+                            <div class="trend-indicators">
+                                <div class="trend-item">
+                                    <span>Vertical Jump:</span>
+                                    <span class="trend positive">↗️ +15%</span>
+                                </div>
+                                <div class="trend-item">
+                                    <span>Push-ups:</span>
+                                    <span class="trend positive">↗️ +8%</span>
+                                </div>
+                                <div class="trend-item">
+                                    <span>Endurance:</span>
+                                    <span class="trend positive">↗️ +12%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3>Performance Predictions</h3>
+                        <div class="chart-placeholder">
+                            <p>🔮 Future Performance</p>
+                            <div class="predictions">
+                                <div class="prediction-item">
+                                    <span>Next Month:</span>
+                                    <span class="prediction">+5% improvement</span>
+                                </div>
+                                <div class="prediction-item">
+                                    <span>3 Months:</span>
+                                    <span class="prediction">+18% improvement</span>
+                                </div>
+                                <div class="prediction-item">
+                                    <span>6 Months:</span>
+                                    <span class="prediction">+35% improvement</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export Section -->
+                <div class="export-section">
+                    <h3>Data Export</h3>
+                    <div class="export-options">
+                        <button class="btn-secondary">📊 Export Analytics</button>
+                        <button class="btn-secondary">📈 Export Trends</button>
+                        <button class="btn-secondary">📋 Export Reports</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="coach-dashboard.js"></script>
+</body>
+</html>
+
+

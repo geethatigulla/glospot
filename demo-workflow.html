@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GloSpot Demo Workflow - Athlete to Coach to Government</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .workflow-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .workflow-header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        .workflow-step {
+            margin: 30px 0;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid;
+        }
+        
+        .step-athlete { border-left-color: #4CAF50; background: #f8fff8; }
+        .step-coach { border-left-color: #2196F3; background: #f3f8ff; }
+        .step-government { border-left-color: #FF9800; background: #fff8f3; }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .step-icon {
+            font-size: 2em;
+            margin-right: 15px;
+        }
+        
+        .step-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .demo-data {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .data-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #666;
+        }
+        
+        .arrow {
+            font-size: 2em;
+            margin: 0 20px;
+            color: #4CAF50;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .metric-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        
+        .timeline {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+        }
+        
+        .timeline-time {
+            font-weight: bold;
+            color: #666;
+            margin-right: 15px;
+            min-width: 80px;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="workflow-container">
+        <div class="workflow-header">
+            <h1>🏃‍♂️ GloSpot Demo Workflow</h1>
+            <p>Complete Data Flow: Athlete → Coach → Government</p>
+            <p><strong>Demo Athlete:</strong> Rajesh Kumar (Age: 18, Sport: Athletics)</p>
+        </div>
+
+        <!-- STEP 1: ATHLETE -->
+        <div class="workflow-step step-athlete">
+            <div class="step-header">
+                <div class="step-icon">🏃‍♂️</div>
+                <h2 class="step-title">Step 1: Athlete Testing (Mobile PWA)</h2>
+            </div>
+            
+            <h3>📱 Athlete Actions on Mobile App:</h3>
+            <div class="demo-data">
+                <strong>Rajesh Kumar performs fitness tests:</strong><br>
+                • Height Test: 175.2 cm<br>
+                • Vertical Jump: 68.5 cm<br>
+                • Push-ups: 42 reps<br>
+                • Squat Test: 35 reps<br>
+                • Test Date: Dec 15, 2024, 2:30 PM
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">68.5cm</div>
+                    <div>Vertical Jump</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">42</div>
+                    <div>Push-ups</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">85%</div>
+                    <div>Overall Score</div>
+                </div>
+            </div>
+
+            <h4>📊 Athlete Dashboard Shows:</h4>
+            <div class="demo-data">
+                • <span class="highlight">Personal Best:</span> Vertical Jump improved by 3.2cm<br>
+                • <span class="highlight">Achievement Unlocked:</span> "Power Jumper" Badge<br>
+                • <span class="highlight">Progress:</span> 15% improvement this month<br>
+                • <span class="highlight">Ranking:</span> #12 in state, #156 nationally
+            </div>
+
+            <div class="timeline">
+                <h4>⏰ Athlete Timeline:</h4>
+                <div class="timeline-item">
+                    <span class="timeline-time">2:30 PM</span>
+                    <span>Started Vertical Jump test</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-time">2:32 PM</span>
+                    <span>Completed test - 68.5cm jump</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-time">2:33 PM</span>
+                    <span>Results saved to profile</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-time">2:34 PM</span>
+                    <span>Shared achievement on social media</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-flow">
+            <span>📊 Data Flows</span>
+            <span class="arrow">⬇️</span>
+            <span>Coach Dashboard</span>
+        </div>
+
+        <!-- STEP 2: COACH -->
+        <div class="workflow-step step-coach">
+            <div class="step-header">
+                <div class="step-icon">👨‍🏫</div>
+                <h2 class="step-title">Step 2: Coach Analysis (Coach Dashboard)</h2>
+            </div>
+            
+            <h3>👨‍🏫 Coach John Doe receives notification:</h3>
+            <div class="demo-data">
+                <strong>New Test Results from Rajesh Kumar:</strong><br>
+                • Vertical Jump: 68.5cm (Previous: 65.3cm)<br>
+                • Improvement: +3.2cm (+4.9%)<br>
+                • Performance Grade: A-<br>
+                • Recommendation: Continue current training program
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">A-</div>
+                    <div>Performance Grade</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">+4.9%</div>
+                    <div>Improvement</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">85%</div>
+                    <div>Team Average</div>
+                </div>
+            </div>
+
+            <h4>📈 Coach Dashboard Analytics:</h4>
+            <div class="demo-data">
+                • <span class="highlight">Team Performance:</span> Rajesh ranks #3 in team<br>
+                • <span class="highlight">Trend Analysis:</span> Consistent 4% monthly improvement<br>
+                • <span class="highlight">Prediction:</span> Could reach 72cm by March 2025<br>
+                • <span class="highlight">Action Required:</span> Schedule technique review session
+            </div>
+
+            <div class="timeline">
+                <h4>⏰ Coach Actions Timeline:</h4>
+                <div class="timeline-item">
+                    <span class="timeline-time">2:35 PM</span>
+                    <span>Received test notification</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-time">2:40 PM</span>
+                    <span>Reviewed performance analytics</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-time">2:45 PM</span>
+                    <span>Sent feedback message to Rajesh</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-time">3:00 PM</span>
+                    <span>Scheduled technique session for Dec 18</span>
+                </div>
+            </div>
+
+            <h4>💬 Coach Communication:</h4>
+            <div class="demo-data">
+                <strong>Message to Rajesh:</strong><br>
+                "Excellent improvement! Your vertical jump has increased by 3.2cm. 
+                Your technique is getting better. Let's schedule a session to work on 
+                your landing mechanics. Keep up the great work! 🏃‍♂️"
+            </div>
+        </div>
+
+        <div class="data-flow">
+            <span>📊 Aggregated Data Flows</span>
+            <span class="arrow">⬇️</span>
+            <span>Government Dashboard</span>
+        </div>
+
+        <!-- STEP 3: GOVERNMENT -->
+        <div class="workflow-step step-government">
+            <div class="step-header">
+                <div class="step-icon">🏛️</div>
+                <h2 class="step-title">Step 3: National Analytics (Government Dashboard)</h2>
+            </div>
+            
+            <h3>🏛️ SAI National Dashboard Updates:</h3>
+            <div class="demo-data">
+                <strong>National Talent Pool Update:</strong><br>
+                • New Elite Athlete Identified: Rajesh Kumar<br>
+                • State: Maharashtra<br>
+                • Sport: Athletics (Vertical Jump)<br>
+                • Performance Level: Elite (Top 5% nationally)<br>
+                • Added to Olympic Preparation Program
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">2,848</div>
+                    <div>Total Athletes Tested</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">343</div>
+                    <div>Elite Athletes Identified</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">12.0%</div>
+                    <div>National Success Rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">18</div>
+                    <div>States Covered</div>
+                </div>
+            </div>
+
+            <h4>📊 National Analytics Impact:</h4>
+            <div class="demo-data">
+                • <span class="highlight">Maharashtra Performance:</span> Success rate increased to 15.2%<br>
+                • <span class="highlight">National Ranking:</span> Maharashtra moves to #1 position<br>
+                • <span class="highlight">Budget Efficiency:</span> ₹1,250 cost per athlete tested<br>
+                • <span class="highlight">ROI:</span> 3.2x return on talent identification investment
+            </div>
+
+            <div class="timeline">
+                <h4>⏰ Government Processing Timeline:</h4>
+                <div class="timeline-item">
+                    <span class="timeline-time">3:15 PM</span>
+                    <span>Data aggregated from coach dashboard</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-time">3:20 PM</span>
+                    <span>Rajesh identified as elite talent</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-time">3:25 PM</span>
+                    <span>Added to Olympic preparation program</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-time">3:30 PM</span>
+                    <span>National statistics updated</span>
+                </div>
+            </div>
+
+            <h4>🎯 Government Actions:</h4>
+            <div class="demo-data">
+                <strong>SAI Director Actions:</strong><br>
+                1. <span class="highlight">Elite Athlete Notification:</span> Rajesh added to national talent pool<br>
+                2. <span class="highlight">Budget Allocation:</span> ₹50,000 allocated for advanced training<br>
+                3. <span class="highlight">Coach Assignment:</span> National coach assigned for specialized training<br>
+                4. <span class="highlight">Facility Access:</span> Premium training facilities made available<br>
+                5. <span class="highlight">Competition Entry:</span> Eligible for national championships
+            </div>
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="workflow-step" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-top: 40px;">
+            <div class="step-header">
+                <div class="step-icon">🎯</div>
+                <h2 class="step-title">Complete Workflow Summary</h2>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card" style="background: rgba(255,255,255,0.1); color: white;">
+                    <div class="metric-value">2.5 min</div>
+                    <div>Athlete Test Time</div>
+                </div>
+                <div class="metric-card" style="background: rgba(255,255,255,0.1); color: white;">
+                    <div class="metric-value">15 min</div>
+                    <div>Coach Analysis</div>
+                </div>
+                <div class="metric-card" style="background: rgba(255,255,255,0.1); color: white;">
+                    <div class="metric-value">15 min</div>
+                    <div>Government Processing</div>
+                </div>
+                <div class="metric-card" style="background: rgba(255,255,255,0.1); color: white;">
+                    <div class="metric-value">32.5 min</div>
+                    <div>Total Processing Time</div>
+                </div>
+            </div>
+
+            <h3>🔄 Data Flow Benefits:</h3>
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <strong>For Athlete:</strong> Immediate feedback, progress tracking, motivation<br>
+                <strong>For Coach:</strong> Real-time monitoring, data-driven decisions, team management<br>
+                <strong>For Government:</strong> National talent identification, resource allocation, Olympic preparation<br>
+                <strong>For Nation:</strong> Systematic talent development, competitive advantage, sports excellence
+            </div>
+
+            <h3>📈 Key Outcomes:</h3>
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px;">
+                ✅ <strong>Rajesh Kumar</strong> identified as elite talent<br>
+                ✅ <strong>Maharashtra</strong> becomes #1 performing state<br>
+                ✅ <strong>National success rate</strong> maintained at 12%<br>
+                ✅ <strong>Olympic preparation</strong> program strengthened<br>
+                ✅ <strong>ROI</strong> of 3.2x on talent identification investment
+            </div>
+        </div>
+    </div>
+</body>
+</html>

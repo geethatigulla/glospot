@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Onboarding - GloSpot</title>
+    <link rel="stylesheet" href="coach-onboarding.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="onboarding-container">
+        <!-- Header -->
+        <header class="onboarding-header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-running"></i>
+                    <span>GloSpot Coach</span>
+                </div>
+                <div class="progress-indicator">
+                    <span class="step-text">Step <span id="current-step">1</span> of 4</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="onboarding-main">
+            <!-- Step 1: Basic Details -->
+            <div class="onboarding-step active" id="step-1">
+                <div class="step-header">
+                    <h2>Basic Information</h2>
+                    <p>Tell us about yourself to get started</p>
+                </div>
+                
+                <form class="onboarding-form" id="basic-details-form">
+                    <div class="form-group">
+                        <label for="full-name">Full Name *</label>
+                        <input type="text" id="full-name" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number *</label>
+                            <input type="tel" id="mobile" name="mobile" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password">Password *</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password *</label>
+                            <input type="password" id="confirm-password" name="confirmPassword" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Years of Coaching Experience *</label>
+                        <select id="experience" name="experience" required>
+                            <option value="">Select experience</option>
+                            <option value="0-2">0-2 years</option>
+                            <option value="3-5">3-5 years</option>
+                            <option value="6-10">6-10 years</option>
+                            <option value="10+">10+ years</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 2: Organization Affiliation -->
+            <div class="onboarding-step" id="step-2">
+                <div class="step-header">
+                    <h2>Organization Details</h2>
+                    <p>Tell us about your coaching affiliation</p>
+                </div>
+                
+                <form class="onboarding-form" id="organization-form">
+                    <div class="form-group">
+                        <label for="organization-type">Organization Type *</label>
+                        <select id="organization-type" name="organizationType" required>
+                            <option value="">Select organization type</option>
+                            <option value="school">School</option>
+                            <option value="college">College/University</option>
+                            <option value="academy">Sports Academy</option>
+                            <option value="club">Sports Club</option>
+                            <option value="independent">Independent Coach</option>
+                            <option value="government">Government Institution</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="organization-name-group">
+                        <label for="organization-name">Organization Name *</label>
+                        <input type="text" id="organization-name" name="organizationName">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="state">State *</label>
+                            <select id="state" name="state" required>
+                                <option value="">Select state</option>
+                                <option value="punjab">Punjab</option>
+                                <option value="haryana">Haryana</option>
+                                <option value="delhi">Delhi</option>
+                                <option value="kerala">Kerala</option>
+                                <option value="tamil-nadu">Tamil Nadu</option>
+                                <option value="karnataka">Karnataka</option>
+                                <option value="maharashtra">Maharashtra</option>
+                                <option value="gujarat">Gujarat</option>
+                                <option value="rajasthan">Rajasthan</option>
+                                <option value="bihar">Bihar</option>
+                                <option value="west-bengal">West Bengal</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organization-address">Organization Address</label>
+                        <textarea id="organization-address" name="organizationAddress" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 3: Sport Specialization -->
+            <div class="onboarding-step" id="step-3">
+                <div class="step-header">
+                    <h2>Sport Specialization</h2>
+                    <p>Select your areas of expertise</p>
+                </div>
+                
+                <form class="onboarding-form" id="specialization-form">
+                    <div class="form-group">
+                        <label>Primary Sport Specialization *</label>
+                        <div class="sport-grid">
+                            <div class="sport-option">
+                                <input type="radio" id="athletics" name="primarySport" value="athletics" required>
+                                <label for="athletics">
+                                    <i class="fas fa-running"></i>
+                                    <span>Athletics</span>
+                                </label>
+                            </div>
+                            <div class="sport-option">
+                                <input type="radio" id="football" name="primarySport" value="football" required>
+                                <label for="football">
+                                    <i class="fas fa-futbol"></i>
+                                    <span>Football</span>
+                                </label>
+                            </div>
+                            <div class="sport-option">
+                                <input type="radio" id="basketball" name="primarySport" value="basketball" required>
+                                <label for="basketball">
+                                    <i class="fas fa-basketball-ball"></i>
+                                    <span>Basketball</span>
+                                </label>
+                            </div>
+                            <div class="sport-option">
+                                <input type="radio" id="cricket" name="primarySport" value="cricket" required>
+                                <label for="cricket">
+                                    <i class="fas fa-baseball"></i>
+                                    <span>Cricket</span>
+                                </label>
+                            </div>
+                            <div class="sport-option">
+                                <input type="radio" id="swimming" name="primarySport" value="swimming" required>
+                                <label for="swimming">
+                                    <i class="fas fa-swimmer"></i>
+                                    <span>Swimming</span>
+                                </label>
+                            </div>
+                            <div class="sport-option">
+                                <input type="radio" id="general-fitness" name="primarySport" value="general-fitness" required>
+                                <label for="general-fitness">
+                                    <i class="fas fa-dumbbell"></i>
+                                    <span>General Fitness</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Additional Sports (Optional)</label>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="additional-athletics" name="additionalSports" value="athletics">
+                                <label for="additional-athletics">Athletics</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="additional-football" name="additionalSports" value="football">
+                                <label for="additional-football">Football</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="additional-basketball" name="additionalSports" value="basketball">
+                                <label for="additional-basketball">Basketball</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="additional-cricket" name="additionalSports" value="cricket">
+                                <label for="additional-cricket">Cricket</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="additional-swimming" name="additionalSports" value="swimming">
+                                <label for="additional-swimming">Swimming</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="additional-tennis" name="additionalSports" value="tennis">
+                                <label for="additional-tennis">Tennis</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="additional-badminton" name="additionalSports" value="badminton">
+                                <label for="additional-badminton">Badminton</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="additional-volleyball" name="additionalSports" value="volleyball">
+                                <label for="additional-volleyball">Volleyball</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="certifications">Certifications & Qualifications</label>
+                        <textarea id="certifications" name="certifications" rows="3" placeholder="List your coaching certifications, degrees, and qualifications..."></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 4: Verification -->
+            <div class="onboarding-step" id="step-4">
+                <div class="step-header">
+                    <h2>Identity Verification</h2>
+                    <p>Upload required documents for verification</p>
+                </div>
+                
+                <form class="onboarding-form" id="verification-form">
+                    <div class="verification-section">
+                        <h3>Required Documents</h3>
+                        <div class="document-upload">
+                            <div class="upload-item">
+                                <div class="upload-icon">
+                                    <i class="fas fa-id-card"></i>
+                                </div>
+                                <div class="upload-content">
+                                    <h4>Government ID Proof</h4>
+                                    <p>Upload Aadhaar Card, PAN Card, or Passport</p>
+                                    <div class="file-upload">
+                                        <input type="file" id="id-proof" name="idProof" accept=".pdf,.jpg,.jpeg,.png" required>
+                                        <label for="id-proof" class="upload-btn">
+                                            <i class="fas fa-upload"></i>
+                                            Choose File
+                                        </label>
+                                        <span class="file-name" id="id-proof-name">No file chosen</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="upload-item">
+                                <div class="upload-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="upload-content">
+                                    <h4>Organization ID Proof</h4>
+                                    <p>Upload organization letter, ID card, or certificate</p>
+                                    <div class="file-upload">
+                                        <input type="file" id="org-proof" name="orgProof" accept=".pdf,.jpg,.jpeg,.png" required>
+                                        <label for="org-proof" class="upload-btn">
+                                            <i class="fas fa-upload"></i>
+                                            Choose File
+                                        </label>
+                                        <span class="file-name" id="org-proof-name">No file chosen</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verification-section">
+                        <h3>Additional Information</h3>
+                        <div class="form-group">
+                            <label for="emergency-contact">Emergency Contact Number</label>
+                            <input type="tel" id="emergency-contact" name="emergencyContact">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="bio">Brief Bio</label>
+                            <textarea id="bio" name="bio" rows="3" placeholder="Tell us about your coaching philosophy and experience..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="terms-section">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a></label>
+                        </div>
+                        
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="verification" name="verification" required>
+                            <label for="verification">I understand that my account will be pending admin approval after submission</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success Step -->
+            <div class="onboarding-step" id="step-success">
+                <div class="success-content">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>Application Submitted Successfully!</h2>
+                    <p>Your coach application has been submitted and is pending admin approval.</p>
+                    
+                    <div class="success-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Approval typically takes 2-3 business days</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>You'll receive an email notification once approved</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            <span>Contact support if you have any questions</span>
+                        </div>
+                    </div>
+                    
+                    <div class="success-actions">
+                        <button class="btn-primary" onclick="window.location.href='coach-dashboard.html'">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Go to Dashboard
+                        </button>
+                        <button class="btn-secondary" onclick="window.location.href='index.html'">
+                            <i class="fas fa-home"></i>
+                            Back to Home
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Navigation -->
+        <footer class="onboarding-footer">
+            <button class="btn-secondary" id="prev-btn" onclick="previousStep()" disabled>
+                <i class="fas fa-arrow-left"></i>
+                Previous
+            </button>
+            <button class="btn-primary" id="next-btn" onclick="nextStep()">
+                Next
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </footer>
+    </div>
+
+    <script src="coach-onboarding.js"></script>
+</body>
+</html>
